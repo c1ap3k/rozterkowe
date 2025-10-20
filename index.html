@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konkurs na Fanart dla Pingwinków - Odliczanie</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .timer-box {
+            background: linear-gradient(145deg, #1f2937, #374151);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05), inset 0 2px 4px 0 rgba(255, 255, 255, 0.05);
+        }
+        .timer-value {
+            font-weight: 900;
+            text-shadow: 0 0 10px rgba(147, 197, 253, 0.5);
+        }
+        .timer-label {
+            font-size: 0.9rem;
+        }
+        .info-card {
+            background-color: rgba(31, 41, 55, 0.5);
+            border: 1px solid rgba(55, 65, 81, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white flex items-center justify-center min-h-screen p-4 md:p-8">
+
+    <div class="w-full max-w-3xl mx-auto">
+        <div class="text-center">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-blue-300">🐧 Konkurs na Fanart dla Pingwinków! 🎨</h1>
+            <p class="text-lg text-gray-400 mb-8">Ruszamy z konkursem na najlepszy fanart! </p>
+
+            <div id="countdown" class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+                <div class="timer-box p-4 sm:p-6 rounded-2xl">
+                    <div id="days" class="timer-value text-5xl sm:text-7xl text-blue-300">00</div>
+                    <div class="timer-label text-gray-400 uppercase tracking-widest mt-1">Dni</div>
+                </div>
+                <div class="timer-box p-4 sm:p-6 rounded-2xl">
+                    <div id="hours" class="timer-value text-5xl sm:text-7xl text-blue-300">00</div>
+                    <div class="timer-label text-gray-400 uppercase tracking-widest mt-1">Godzin</div>
+                </div>
+                <div class="timer-box p-4 sm:p-6 rounded-2xl">
+                    <div id="minutes" class="timer-value text-5xl sm:text-7xl text-blue-300">00</div>
+                    <div class="timer-label text-gray-400 uppercase tracking-widest mt-1">Minut</div>
+                </div>
+                <div class="timer-box p-4 sm:p-6 rounded-2xl">
+                    <div id="seconds" class="timer-value text-5xl sm:text-7xl text-blue-300">00</div>
+                    <div class="timer-label text-gray-400 uppercase tracking-widest mt-1">Sekund</div>
+                </div>
+            </div>
+
+            <div id="expired-message" class="hidden mt-12">
+                 <h2 class="text-4xl font-bold text-red-400">Czas na nadsyłanie prac minął!</h2>
+                 <p class="text-gray-400 mt-2">Dziękujemy za wszystkie zgłoszenia. Wkrótce rozpocznie się głosowanie!</p>
+            </div>
+
+            <div class="mt-10 text-gray-500 text-sm">
+                <p>Termin nadsyłania prac: 11 listopada 2025 r., godz. 23:59</p>
+            </div>
+        </div>
+
+        <!-- Dodatkowe informacje o konkursie -->
+        <div class="mt-16 text-left space-y-8">
+
+            <!-- Nagrody -->
+            <div>
+                <h2 class="text-2xl font-bold mb-4 text-blue-300">🏆 Co można wygrać?</h2>
+                <div class="info-card rounded-lg p-6 text-gray-300 space-y-2">
+                    <p>Do zgarnięcia są <strong>2 nagrody fizyczne!</strong></p>
+                    <ul class="list-disc list-inside pl-2">
+                        <li><strong>Nagroda Publiczności</strong> – wybrana przez całą społeczność w głosowaniu.</li>
+                        <li><strong>Nagroda Rozterkowej</strong> – wybrana osobiście przeze mnie.</li>
+                    </ul>
+                    <p class="text-sm text-gray-400 pt-2">Uwaga: Jedna praca nie może zdobyć obu nagród.</p>
+                </div>
+            </div>
+
+            <!-- Zasady -->
+            <div>
+                <h2 class="text-2xl font-bold mb-4 text-blue-300">📜 Najważniejsze zasady</h2>
+                <div class="info-card rounded-lg p-6 text-gray-300">
+                    <ul class="list-disc list-inside space-y-3">
+                        <li><strong>Temat:</strong> Pełna dowolność! Praca musi być jednak powiązana z kanałem (pingwinki, Rozterkowa, sytuacje ze streamów itp.).</li>
+                        <li><strong>Technika:</strong> Dowolna (rysunek, grafika cyfrowa, obraz, rzeźba, komiks, figurki z plasteliny, animacja itd.).</li>
+                        <li><strong>100% Twoja praca:</strong> Praca musi być w całości stworzona przez Ciebie.</li>
+                        <li><strong>Dowód dla prac cyfrowych:</strong> Do maila ze zgłoszeniem dołącz proszę dowód tworzenia pracy (np. screeny z różnych etapów lub krótki filmik z procesu tworzenia).</li>
+                        <li><strong class="text-red-400">ZAKAZ AI:</strong> Prace stworzone przy użyciu sztucznej inteligencji (nawet częściowo) będą natychmiast dyskwalifikowane.</li>
+                        <li><strong class="text-yellow-300">Ważne:</strong> Uczestnik musi mieszkać na terytorium Polski (ze względu na wysyłkę nagród fizycznych).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Jak zgłosić pracę -->
+            <div>
+                <h2 class="text-2xl font-bold mb-4 text-blue-300">📥 Jak zgłosić pracę?</h2>
+                <div class="info-card rounded-lg p-6 text-gray-300 space-y-3">
+                    <p>1. Przygotuj wyraźne zdjęcie, skan lub plik cyfrowy swojej pracy.</p>
+                    <p>2. Wyślij maila na adres: <a href="mailto:rozterkowa@gmail.com" class="text-blue-400 hover:underline">rozterkowa@gmail.com</a></p>
+                    <p>3. W tytule maila wpisz: <strong class="text-blue-400">Konkurs Fanart - [Twój nick]</strong></p>
+                    <p class="text-sm text-gray-400 pt-2">Wysyłając pracę, zgadzasz się na jej nieodpłatną publikację w mediach społecznościowych z oznaczeniem Ciebie jako autora.</p>
+                </div>
+            </div>
+
+            <!-- Harmonogram -->
+            <div>
+                <h2 class="text-2xl font-bold mb-4 text-blue-300">⏰ Harmonogram konkursu</h2>
+                <div class="info-card rounded-lg p-6 text-gray-300">
+                     <ul class="space-y-2">
+                        <li><strong>Nadsyłanie prac:</strong> do 11 listopada 2025 r. (do godz. 23:59)</li>
+                        <li><strong>Głosowanie publiczności:</strong> od 12 do 19 listopada 2025 r.</li>
+                        <li><strong>Ogłoszenie wyników:</strong> 20 listopada 2025 r.</li>
+                    </ul>
+                </div>
+            </div>
+             <p class="text-center text-gray-400 pt-8 pb-4">Powodzenia i niech kreatywność będzie z Wami!</p>
+        </div>
+    </div>
+
+    <script>
+        // --- Ustawienie daty końcowej konkursu ---
+        const countdownDate = new Date("2025-11-11T23:59:59").getTime();
+
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minutesEl = document.getElementById('minutes');
+        const secondsEl = document.getElementById('seconds');
+        const countdownEl = document.getElementById('countdown');
+        const expiredMessageEl = document.getElementById('expired-message');
+
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            if (distance < 0) {
+                clearInterval(interval);
+                countdownEl.style.display = 'none';
+                expiredMessageEl.classList.remove('hidden');
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Funkcja do formatowania liczb (dodaje zero z przodu)
+            const formatTime = (time) => time < 10 ? `0${time}` : time;
+
+            daysEl.innerHTML = formatTime(days);
+            hoursEl.innerHTML = formatTime(hours);
+            minutesEl.innerHTML = formatTime(minutes);
+            secondsEl.innerHTML = formatTime(seconds);
+        };
+
+        const interval = setInterval(updateCountdown, 1000);
+        
+        // Uruchomienie funkcji od razu, aby nie było opóźnienia
+        updateCountdown();
+    </script>
+</body>
+</html>
+
+
+
